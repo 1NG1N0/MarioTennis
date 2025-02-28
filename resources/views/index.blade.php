@@ -1,109 +1,86 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneio Mario Power Tennis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand" href="#">Mario Power Tennis</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Inscrição</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Personagens</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Equipes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Regras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Como jogar</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+@extends('app')
+@section('title', 'EGAP Torneios: Mario Power Tennis')
 
-    <header class="bg-danger text-white text-center py-5">
+@section('content')
+    <header class="bg-dark text-white text-center py-5" style="background: linear-gradient(to right, #077e1d70, #01ff5684);">
         <div class="container">
-            <h1>Bem-vindo ao Torneio de Mario Power Tennis!</h1>
-            <p class="lead">Junte-se a outros jogadores para competir no torneio definitivo.</p>
-            <a href="#" class="btn btn-light btn-lg">Inscreva-se Agora</a>
+            <h1 class="fw-bold">EGAP Torneios 2025: Mario Power Tennis</h1>
+            <p class="lead">Compita com os melhores jogadores e prove suas habilidades na quadra virtual!</p>
+            @guest
+            <a href="#inscricao" class="btn btn-light btn-lg fw-bold">Inscreva-se Agora</a>
+            @endguest
         </div>
     </header>
 
-    <main class="flex-grow-1">
-        <div class="container text-center mt-5">
-            <h1>Bem-vindo ao Torneio!</h1>
-            <p>Jogue Mario Tennis e seja o campeão!</p>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <img src="https://mario.wiki.gallery/images/6/64/MPT_EnglishLogo.jpg" class="img-fluid rounded" alt="Mario Power Tennis">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <p class="text-start">
-                        O <strong> EGAP </strong> traz uma competição que promete agitar o evento: o Mario Power Tennis! Esse clássico jogo de tênis com os personagens do universo Nintendo vai reunir duplas em disputas cheias de diversão e estratégia. Pegue seu parceiro ou parceira, forme sua equipe e venha mostrar suas habilidades na quadra virtual. A competição é aberta para todos, sejam experts ou iniciantes, o importante é se divertir e aproveitar o clima descontraído do evento.
+    <main class="container mt-5 p-5">
+        <!-- Sobre o Torneio -->
+        <section class="text-center mb-5">
+            <h2 class="fw-bold">Sobre o Torneio</h2>
+            <p class="text-muted">O torneio de <strong>Mario Power Tennis</strong> é a competição definitiva para fãs de jogos de esportes e estratégia.
+            Prepare-se para partidas acirradas, rivalidades intensas e uma premiação incrível!</p>
+        </section>
 
-E tem prêmio incrível! A dupla campeã ganhará um rodízio de pizza com tudo pago pelos organizadores do EGAP. Imagine comemorar a vitória saboreando aquela pizza deliciosa ao lado do seu parceiro de jogo. Não perca essa chance: inscreva-se, chame seu amigo e participe dessa competição que promete ser um dos highlights do evento. Vamos jogar, competir e garantir muita diversão! 🎾🍕🎮
-
-
-                    </p>
+        <!-- Cards de Informações -->
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-3 shadow-sm border-0">
+                    <h4 class="fw-bold">🎮 Formato</h4>
+                    <p>Chaveamento de duplas com eliminação simples.</p><br>
+                    <p>O torneio contará com X jogadores e será em sistema de mata-a-mata, perdeu, JÁ ERA!!!</p>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <div id="carouselExample" class="carousel slide">
+            <div class="col-md-4">
+                <div class="card p-3 shadow-sm border-0">
+                    <h4 class="fw-bold">🏆 Premiação</h4>
+                    <p>Se você for um integrante da dupla campeã você ganahara um incrivel premio: uma noite em um rodizio de Pizza COM TUDO PAGO!!!</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 shadow-sm border-0">
+                    <h4 class="fw-bold">📅 Data</h4>
+                    <p>O torneio acontecerá dia 07/03, no laboratorio 71</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galeria de Imagens -->
+        <section class="mt-5">
+            <h3 class="fw-bold text-center">Galeria</h3>
+            <div id="carouselTorneio" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="Mario_Power_Tennis_title_screen.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="Mario Tennis Open.jpeg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="BowserJrTrophyMarioPowerTennis.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="MPT_Peach_vs_Mario.png" class="d-block w-100" alt="...">
-                  </div>
+                    <div class="carousel-item active">
+                        <img src="Ai.jpg" class="d-block w-100 rounded" alt="Tela de título Mario Tennis">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="FotoEpica.jpg" class="d-block w-100 rounded" alt="Mario vs Peach em Mario Tennis">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="MonoMao.jpg" class="d-block w-100 rounded" alt="Troféu de Bowser Jr.">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Seu.jpg" class="d-block w-100 rounded" alt="Troféu de Bowser Jr.">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="TeVira.jpg" class="d-block w-100 rounded" alt="Troféu de Bowser Jr.">
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTorneio" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTorneio" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
                 </button>
-              </div>
-
-            <!-- Seção sobre a EGAP -->
-            <div class="mt-5">
-                <h3>Sobre a EGAP</h3>
-                <p class="text-muted">
-                    O <strong> EGAP </strong> (Encontro Geek do Agreste Potiguar) é um evento imperdível para os fãs da cultura nerd, realizado durante a SEMADEC no campus do IFRN Nova Cruz. Com uma programação repleta de jogos, salas temáticas, exibição de filmes e muito mais! O EGAP oferece um espaço para os amantes de quadrinhos, RPGs, videogames e universos fantásticos se conectarem e se divertirem. Inscreva-se e venha fazer parte dessa celebração da cultura geek, onde a diversão e a paixão pelos universos nerds se encontram! 🎮🎬🚀
-                </p>
             </div>
+        </section>
 
-            <!-- Botão de Inscrição -->
-            <a href="#" class="btn btn-danger btn-lg mt-3">Confira o resto do evento</a>
-        </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
+        @guest
+        <!-- Inscrição -->
+        <section id="inscricao" class="text-center mt-5">
+            <h3 class="fw-bold">Garanta sua vaga!</h3>
+            <p>As inscrições são limitadas. Não perca tempo e participe!</p>
+
+            <a href="#" class="btn btn-danger btn-lg fw-bold">Inscreva-se Agora</a>
+            @endguest
+        </section>
     </main>
-
-    <footer class="bg-dark text-white text-center py-3 mt-auto" margin = 0px>
-        <p>&copy; 2025 EGAP - Encotro Geek do Agreste Potiguar. Todos os direitos devem ser respeitados.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
