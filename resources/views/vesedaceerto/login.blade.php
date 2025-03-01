@@ -1,3 +1,4 @@
+e esse codigo, implemente nele e me explique dps:
 @extends('app')
 @section('title', 'EGAP Torneios: Mario Power Tennis')
 

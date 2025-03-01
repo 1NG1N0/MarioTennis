@@ -13,15 +13,18 @@ class UserController extends Controller
         $validate = $request->validate([
             'fulano' => 'required|string|max:255',
             'hotmail' => 'required|email|unique:users,email',
+            'telemovel' => 'required|string',
             'senha' => 'required|string|min:6'
         ],[
             'fulano.required' => 'Vc não é indigente e tem nome, escreva essa merda',
             'hotmail.required' => 'Faça direito, vc não é um inultil q nao tem email, escreva logo',
+            'telemovel.required' => 'vamos clonar seu chip',
             'senha.required' => 'tu vai entrar como, sem senha?',
             'senha.min' => 'bote algo que seja palatavel, nunca vi uma senha de 5 digito, nao e pin essa porra'
         ]);
         $user['name'] = $validate['fulano'];
         $user['email'] = $validate['hotmail'];
+        $user['telefone'] = $validate['telemovel'];
         $user['password'] = $validate['senha'];
 
         $novousuario = User::create($user);
